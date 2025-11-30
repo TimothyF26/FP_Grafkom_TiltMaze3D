@@ -5,16 +5,37 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public int collectedStars = 0;
+    public float levelTimer = 0f;
+    public bool counting = true;
+
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
-        DontDestroyOnLoad(gameObject);
+    void Update()
+    {
+        if (counting)
+            levelTimer += Time.deltaTime;
+    }
+
+    public void AddStar()
+    {
+        collectedStars++;
     }
 
     public void LevelComplete()
     {
+        counting = false;
         UIManager.Instance.ShowLevelComplete();
         Time.timeScale = 0f;
     }
