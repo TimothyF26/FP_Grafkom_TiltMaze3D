@@ -34,11 +34,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void LevelComplete()
-    {
-        counting = false;
-        UIManager.Instance.ShowLevelComplete();
-        Time.timeScale = 0f;
-    }
+{
+    counting = false;
+    UIManager.Instance.ShowLevelComplete(collectedStars);
+    Time.timeScale = 0f;
+}
 
     public void RestartLevel()
     {

@@ -11,8 +11,8 @@ public class BoardTiltController : MonoBehaviour
 
     void Update()
     {
-        inputX = Input.GetAxis("Horizontal");   // A = -1 , D = 1
-        inputZ = Input.GetAxis("Vertical");     // W = 1 , S = -1
+        inputX = Input.GetAxis("Horizontal");   //A=-1,D=1
+        inputZ = Input.GetAxis("Vertical");     //W=1,S=-1
 
         Vector3 targetRotation;
 

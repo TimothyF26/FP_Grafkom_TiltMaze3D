@@ -6,8 +6,12 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public GameObject levelCompletePanel;
+
     public Text timerText;
-    public Text starText;
+    public Text starsText; // ganti dari starText
+
+    public Text levelCompleteStars; // UI di panel level complete
+    public int maxStars = 3;
 
     void Awake()
     {
@@ -17,11 +21,20 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         timerText.text = GameManager.Instance.levelTimer.ToString("F2");
-        starText.text = "Stars: " + GameManager.Instance.collectedStars;
     }
 
-    public void ShowLevelComplete()
+    public void UpdateStarsUI(int stars)
+    {
+        starsText.text = "⭐ " + stars + "/" + maxStars;
+    }
+
+    public void ShowLevelComplete(int stars)
     {
         levelCompletePanel.SetActive(true);
+
+        // Tampilkan bintang di level complete panel
+        levelCompleteStars.text = "";
+        for (int i = 0; i < stars; i++)
+            levelCompleteStars.text += "⭐";
     }
 }

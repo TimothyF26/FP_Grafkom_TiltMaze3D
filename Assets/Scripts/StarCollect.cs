@@ -7,6 +7,7 @@ public class StarCollect : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             GameManager.Instance.AddStar();
+            UIManager.Instance.UpdateStarsUI(GameManager.Instance.collectedStars);
             Destroy(gameObject);
         }
     }

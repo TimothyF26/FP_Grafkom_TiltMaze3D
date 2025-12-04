@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ExtraGravity : MonoBehaviour
 {
-    public float extraGravity = 15f;   // nilai normalnya 0 → kita tambah 15
+    public float extraGravity = 15f;
     private Rigidbody rb;
 
     void Start()
@@ -12,7 +12,6 @@ public class ExtraGravity : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Tambah gravitasi ke bawah secara manual
         rb.AddForce(Vector3.down * extraGravity, ForceMode.Acceleration);
     }
 }
