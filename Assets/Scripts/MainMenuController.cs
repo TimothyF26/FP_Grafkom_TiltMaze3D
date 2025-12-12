@@ -35,15 +35,7 @@ public class MainMenuController : MonoBehaviour
     /// </summary>
     public void OnStartGame()
     {
-        if (string.IsNullOrEmpty(defaultLevelSceneName))
-        {
-            Debug.LogError("[MainMenuController] Default level scene name belum diisi di Inspector!");
-            return;
-        }
-
-        Debug.Log("[MainMenuController] Loading default level: " + defaultLevelSceneName);
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(defaultLevelSceneName);
+        OnShowLevelSelect();
     }
 
     /// <summary>
