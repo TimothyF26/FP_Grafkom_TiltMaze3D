@@ -34,21 +34,21 @@ public class GameManager : MonoBehaviour
     }
 
     public void LevelComplete()
-{
-    counting = false;
-    UIManager.Instance.ShowLevelComplete(collectedStars);
-    Time.timeScale = 0f;
-}
+    {
+        counting = false;
+        UIManager.Instance.ShowLevelComplete(collectedStars);
+        Time.timeScale = 0f;
+    }
 
     public void RestartLevel()
     {
-        Time.timeScale = 1f;
+        ResetState();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoadNextLevel()
     {
-        Time.timeScale = 1f;
+        ResetState();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -64,4 +64,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
+    public void ResetState()
+    {
+        collectedStars = 0;
+        levelTimer = 0f;
+        counting = true;
+        Time.timeScale = 1f;
+    }
 }
