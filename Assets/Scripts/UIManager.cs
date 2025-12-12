@@ -28,6 +28,14 @@ public class UIManager : MonoBehaviour
         starsText.text = "⭐ " + stars + "/" + maxStars;
     }
 
+    public void UpdateKeysUI(int keysCollected)
+{
+    // Untuk sekarang, kita print ke console
+    // Di future, bisa bikin Text UI element untuk menampilkan ini
+    Debug.Log("Keys collected: " + keysCollected + "/2");
+}
+
+
     public void ShowLevelComplete(int stars)
     {
         levelCompletePanel.SetActive(true);

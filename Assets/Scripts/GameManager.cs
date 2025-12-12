@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public int collectedStars = 0;
+    public int collectedKeys = 0;  // BARU: Variable untuk tracking kunci
     public float levelTimer = 0f;
     public bool counting = true;
 
@@ -31,6 +32,13 @@ public class GameManager : MonoBehaviour
     public void AddStar()
     {
         collectedStars++;
+    }
+
+    // BARU: Method untuk tambah kunci
+    public void AddKey(int keyID)
+    {
+        collectedKeys++;
+        Debug.Log("Key " + keyID + " collected! Total keys: " + collectedKeys);
     }
 
     public void LevelComplete()
@@ -67,6 +75,7 @@ public class GameManager : MonoBehaviour
     public void ResetState()
     {
         collectedStars = 0;
+        collectedKeys = 0;  // BARU: Reset kunci saat level restart
         levelTimer = 0f;
         counting = true;
         Time.timeScale = 1f;
