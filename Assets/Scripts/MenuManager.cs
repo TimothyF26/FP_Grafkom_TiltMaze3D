@@ -12,16 +12,25 @@ public class MenuManager : MonoBehaviour
     /// Dihubungkan ke tombol "Mulai"
     /// </summary>
     public void StartGame()
+{
+    // Pastikan game tidak dalam state pause
+    Time.timeScale = 1f;
+    
+    // Tampilkan level selection panel INSTEAD of loading lvl1
+    LevelSelectPanelController levelSelectController = 
+        FindObjectOfType<LevelSelectPanelController>();
+    
+    if (levelSelectController != null)
     {
-        // Pastikan game tidak dalam state pause
-        Time.timeScale = 1f;
-        
-        // Muat scene lvl1
-        // PENTING: Nama scene harus sama persis dengan file name
-        SceneManager.LoadScene("lvl1");
-        
-        Debug.Log("Loading Game Scene...");
+        levelSelectController.ShowLevelSelect();
     }
+    else
+    {
+        Debug.LogError("LevelSelectPanelController tidak ditemukan di scene!");
+    }
+    
+    Debug.Log("Opening Level Selection...");
+}
 
     /// <summary>
     /// Fungsi untuk membuka panel Tentang Kami
